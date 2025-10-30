@@ -1,0 +1,16 @@
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <!-- Turn off specific noisy loggers -->
+    <logger name="org.docx4j" level="OFF"/>
+    <logger name="com.sun.xml.bind" level="OFF"/>
+    <logger name="jakarta.xml.bind" level="OFF"/>
+</configuration>

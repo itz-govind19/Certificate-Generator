@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Research Paper Certificate</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+        }
+
+        .certificate {
+            border: 4px dashed #4CAF50;
+            padding: 30px;
+            margin-bottom: 30px;
+            background-color: #f0fff4;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #2e7d32;
+        }
+
+        .details {
+            font-size: 18px;
+            margin: 8px 0;
+        }
+
+        .form label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form button:hover {
+            background-color: #388e3c;
+        }
+
+        .error {
+            color: #d32f2f;
+            background-color: #fdecea;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: white;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Certificate Preview -->
+    <div class="certificate" th:if="${#strings.isEmpty(certificateDTO.authername) == true}">
+        <h1>Certificate of Research Paper Submission</h1>
+    </div>
+
+    <!-- Form -->
+    <div class="form">
+        <form action="/generate" method="post">
+            <label for="authername">Author Name:</label>
+            <input type="text" name="authername" required>
+
+            <label for="paperId">Paper ID:</label>
+            <input type="text" name="paperId" required>
+
+            <label for="paperTopic">Paper Topic:</label>
+            <input type="text" name="paperTopic" required>
+
+            <label for="pages">Pages:</label>
+            <input type="text" name="pages" required>
+
+            <label for="certificateId">Certificate ID:</label>
+            <input type="text" name="certificateId">
+
+            <label for="date">Date <small>(format: dd/mm/yyyy)</small>:</label>
+            <input type="date" name="date" required>
+
+            <button type="submit">Generate Certificate</button>
+        </form>
+    </div>
+
+    <!-- Display error message if present -->
+    <div th:if="${error}" class="error">
+        <p th:text="${error}">Error occurred</p>
+    </div>
+
+
+    <!-- Add this below your form in the existing HTML -->
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="/certificates" style="text-decoration: none;">
+            <button type="button"
+                    style="background-color: #2196F3;
+                       padding: 15px 40px;
+                       font-size: 18px;
+                       border: none;
+                       border-radius: 5px;
+                       color: white;
+                       cursor: pointer;">
+                View Generated Certificates
+            </button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
