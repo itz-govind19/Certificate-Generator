@@ -1,0 +1,14 @@
+${AnsiColor.BLUE}
+  ____             _             ____              _        _                _ _           _   _
+ / ___| _ __  _ __(_)_ __   __ _| __ )  ___   ___ | |_     / \   _ __  _ __ | (_) ___ __ _| |_(_) ___  _ __
+ \___ \| '_ \| '__| | '_ \ / _` |  _ \ / _ \ / _ \| __|   / _ \ | '_ \| '_ \| | |/ __/ _` | __| |/ _ \| '_ \
+  ___) | |_) | |  | | | | | (_| | |_) | (_) | (_) | |_   / ___ \| |_) | |_) | | | (_| (_| | |_| | (_) | | | |
+ |____/| .__/|_|  |_|_| |_|\__, |____/ \___/ \___/ \__| /_/   \_\ .__/| .__/|_|_|\___\__,_|\__|_|\___/|_| |_|
+       |_|                 |___/                                |_|   |_|
+${AnsiStyle.NORMAL}
+
+Version number of your application declared in MANIFEST.MF: ${application.version}
+Version number of your application declared in MANIFEST.MF formatted: ${application.formatted-version}
+Spring Boot version: ${spring-boot.version}
+Spring Boot version formatted: ${spring-boot.formatted-version}
+The title of your application, as declared in MANIFEST.MF: ${application.title}
